@@ -36,8 +36,15 @@ void print_board(char board[9]) {
 }
 
 void attempt_move(char board[9], int pos) {
-	board[pos] = 'x';
-	print_board(board);
+	if (board[pos] == 'x')
+	{
+		printf("Invalid move\n");
+	}
+	else
+	{
+		board[pos] = 'x';
+		print_board(board);
+	}
 }
 
 int main(int argc, char *argv[]) {
