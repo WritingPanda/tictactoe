@@ -22,7 +22,7 @@ void tempfunc2() {
 }
 
 // Thomas solution
-void print_board(char board[9]) {
+void print_board(char board[9], char *message) {
 	system("cls");
 	printf("     |     |     \n");
 	printf("  %c  |  %c  |  %c  \n", board[0], board[1], board[2]);
@@ -33,38 +33,40 @@ void print_board(char board[9]) {
 	printf("     |     |     \n");
 	printf("  %c  |  %c  |  %c  \n", board[6], board[7], board[8]);
 	printf("     |     |     \n");
+	printf("%s", message);
 }
 
+// Thomas solution
 void attempt_move(char board[9], int pos) {
-	if (board[pos] == 'x')
-	{
-		printf("Invalid move\n");
-	}
-	else
-	{
+	if (' ' == board[pos]) {
 		board[pos] = 'x';
-		print_board(board);
+		print_board(board, "nice move!");
+	}
+	else {
+		print_board(board, "invalid move, try again");
 	}
 }
 
+// Thomas solution
 int main(int argc, char *argv[]) {
 	char move = '\0';
 	char board[9] = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
-	print_board(board);
+	print_board(board, "ok, let's play!");
 	while ('q' != move) {
 		move = getch();
 		switch (move) {
-		case '7': attempt_move(board, 0); break;
-		case '8': attempt_move(board, 1); break;
-		case '9': attempt_move(board, 2); break;
-		case '4': attempt_move(board, 3); break;
-		case '5': attempt_move(board, 4); break;
-		case '6': attempt_move(board, 5); break;
-		case '1': attempt_move(board, 6); break;
-		case '2': attempt_move(board, 7); break;
-		case '3': attempt_move(board, 8); break;
+			case '7': attempt_move(board, 0); break;
+			case '8': attempt_move(board, 1); break;
+			case '9': attempt_move(board, 2); break;
+			case '4': attempt_move(board, 3); break;
+			case '5': attempt_move(board, 4); break;
+			case '6': attempt_move(board, 5); break;
+			case '1': attempt_move(board, 6); break;
+			case '2': attempt_move(board, 7); break;
+			case '3': attempt_move(board, 8); break;
 		}
 	}
+	system("cls");
 	printf("press any key to exit..\n");
 	getch();
 	return 0;
