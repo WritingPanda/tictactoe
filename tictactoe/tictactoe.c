@@ -23,7 +23,6 @@ void tempfunc2() {
 
 int main(int argc, char *argv[]) {
 
-	int age = 28;
 	printf("     |     |     \n");
 	printf("     |     |     \n");
 	printf("_____|_____|_____\n");
@@ -34,8 +33,14 @@ int main(int argc, char *argv[]) {
 	printf("     |     |     \n");
 	printf("     |     |     \n");
 
-	char c1 = getch();
-	printf("%c", c1);
-	char c2 = getch();
+	char move = '\0';
+
+	// When doing comparisons, have the constant go first
+	while ('q' != move) {
+		move = getch();
+		printf("%c", move);
+	}
+	printf("press any key to exit..\n");
+	getch();
 	return 0;
 }
