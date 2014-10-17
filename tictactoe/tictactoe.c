@@ -12,11 +12,17 @@ void tempfunc() {
 	printf("Variable: %04li\n Size: %u\n", var4, sizeof var4);
 }
 
+void tempfunc2() {
+	char *s = malloc(100);
+	scanf_s("%s", s, 100);
+	printf("The input string is %s\n", s);
+	scanf_s("%s", s, 100);
+	printf("The second input string is %s\n", s);
+	free(s);
+}
+
 int main(int argc, char *argv[]) {
 
-	tempfunc();
-	getch();
-	/*
 	int age = 28;
 	printf("     |     |     \n");
 	printf("     |     |     \n");
@@ -27,7 +33,9 @@ int main(int argc, char *argv[]) {
 	printf("     |     |     \n");
 	printf("     |     |     \n");
 	printf("     |     |     \n");
-	getch();
+
+	char c1 = getch();
+	printf("%c", c1);
+	char c2 = getch();
 	return 0;
-	*/
 }
