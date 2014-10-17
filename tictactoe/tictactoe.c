@@ -21,125 +21,41 @@ void tempfunc2() {
 	free(s);
 }
 
+// Thomas solution
+void print_board(char board[9]) {
+	system("cls");
+	printf("     |     |     \n");
+	printf("  %c  |  %c  |  %c  \n", board[0], board[1], board[2]);
+	printf("_____|_____|_____\n");
+	printf("     |     |     \n");
+	printf("  %c  |  %c  |  %c  \n", board[3], board[4], board[5]);
+	printf("_____|_____|_____\n");
+	printf("     |     |     \n");
+	printf("  %c  |  %c  |  %c  \n", board[6], board[7], board[8]);
+	printf("     |     |     \n");
+}
+
+void attempt_move(char board[9], int pos) {
+	board[pos] = 'x';
+	print_board(board);
+}
+
 int main(int argc, char *argv[]) {
-
 	char move = '\0';
-
-	// When doing comparisons, have the constant go first
+	char board[9] = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+	print_board(board);
 	while ('q' != move) {
-		printf("     |     |     \n");
-		printf("     |     |     \n");
-		printf("_____|_____|_____\n");
-		printf("     |     |     \n");
-		printf("     |     |     \n");
-		printf("_____|_____|_____\n");
-		printf("     |     |     \n");
-		printf("     |     |     \n");
-		printf("     |     |     \n");
-		
 		move = getch();
-
-		switch (move)
-		{
-			case '9':
-				printf("     |     |     \n");
-				printf("     |     |  9  \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				break;
-			case '8':
-				printf("     |     |     \n");
-				printf("     |  8  |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				break;
-			case '7':
-				printf("     |     |     \n");
-				printf("  7  |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				break;
-			case '6':
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |  6  \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				break;
-			case '5':
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |  5  |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				break;
-			case '4':
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("  4  |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				break;
-			case '3':
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |  3  \n");
-				printf("     |     |     \n");
-				break;
-			case '2':
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |  2  |     \n");
-				printf("     |     |     \n");
-				break;
-			case '1':
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("     |     |     \n");
-				printf("_____|_____|_____\n");
-				printf("     |     |     \n");
-				printf("  1  |     |     \n");
-				printf("     |     |     \n");
-				break;
+		switch (move) {
+		case '7': attempt_move(board, 0); break;
+		case '8': attempt_move(board, 1); break;
+		case '9': attempt_move(board, 2); break;
+		case '4': attempt_move(board, 3); break;
+		case '5': attempt_move(board, 4); break;
+		case '6': attempt_move(board, 5); break;
+		case '1': attempt_move(board, 6); break;
+		case '2': attempt_move(board, 7); break;
+		case '3': attempt_move(board, 8); break;
 		}
 	}
 	printf("press any key to exit..\n");
